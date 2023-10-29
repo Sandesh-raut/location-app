@@ -77,5 +77,5 @@ Note: Ensure you have a separate testing database or use database mocking to pre
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See the LICENSE file for details.
 
