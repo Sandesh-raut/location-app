@@ -7,8 +7,9 @@ A dynamic web application that provides hierarchical selection of locations. Use
 - [Features](#features)
 - [Setup & Installation](#setup--installation)
 - [File Structure](#file-structure)
-- [Testing](#testing)
+- [Database Setup](#database-setup)
 - [Extending the Hierarchy](#extending-the-hierarchy)
+- [Testing](#testing)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -59,15 +60,19 @@ A dynamic web application that provides hierarchical selection of locations. Use
 |-- LICENSE
 ```
 
-## Testing
+## Database Setup
 
-1. Navigate to the project's root directory.
-2. Run the following command:
+The `db.php` file located in the `/php/` directory not only contains the database connection setup but also includes the DDL (Data Definition Language) and DML (Data Manipulation Language) scripts for the initial setup of the application.
 
-```bash
-./vendor/bin/phpunit
-```
-Note: Ensure you have a separate testing database or use database mocking to prevent tests from modifying the actual database.
+### Initial Database Setup:
+
+To perform the initial setup:
+
+1. Navigate to the `db.php` file.
+2. Uncomment the DDL and DML sections to execute the table creation and initial data insertion.
+3. Once the setup is complete, it's recommended to comment these sections back to prevent accidental re-execution.
+
+Note: Always ensure to back up any data before performing database operations to avoid unintended data loss.
 
 ## Extending the Hierarchy
 
@@ -110,6 +115,17 @@ The structure is modular by design. To incorporate a new hierarchical level:
 2. Insert data for the new level into the `locations` table.
 
 Post these modifications, the system will automatically account for the new level in the selection process. Always ensure a thorough test post any changes to confirm all functionalities are intact.
+
+## Testing
+
+1. Navigate to the project's root directory.
+2. Run the following command:
+
+```bash
+./vendor/bin/phpunit
+```
+Note: Ensure you have a separate testing database or use database mocking to prevent tests from modifying the actual database.
+
 
 ## Contributing
 
