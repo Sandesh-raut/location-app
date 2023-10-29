@@ -13,6 +13,29 @@ $options = [
 
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
+
+    // Uncomment the below lines for the initial setup.
+    /*
+    // DDL
+    $pdo->exec("
+        CREATE TABLE IF NOT EXISTS locations (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            type VARCHAR(255) NOT NULL,
+            parent_id INT DEFAULT NULL,
+            FOREIGN KEY (parent_id) REFERENCES locations(id),
+            FULLTEXT(name)
+        );
+    ");
+
+    // DML
+    $pdo->exec("
+        INSERT INTO locations(name, type) VALUES ('CountryA', 'country');
+        INSERT INTO locations(name, type) VALUES ('CountryB', 'country');
+        INSERT INTO locations(name, type, parent_id) VALUES ('RegionA1', 'region', 1);
+        INSERT INTO locations(name, type, parent_id) VALUES ('RegionA2', 'region', 1);
+    ");
+    */
 } catch (\PDOException $e) {
     throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
